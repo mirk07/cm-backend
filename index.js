@@ -85,5 +85,5 @@ app.post(
 );
 
 const server = app.listen(process.env.PORT || 4444, () => {
-  console.log("Server started at Port 4444");
+  console.log("Server started", process.env.PORT);
 });
