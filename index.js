@@ -84,6 +84,6 @@ app.post(
   create
 );
 
-const server = app.listen(4444, () => {
+const server = app.listen(process.env.PORT || 4444, () => {
   console.log("Server started at Port 4444");
 });
