@@ -34,7 +34,7 @@ const app = express();
 const storage = multer.diskStorage({
   destination: (_, __, cb) => {
      if (!fs.existsSync("uploads")) {
-      fs.mkdir("uploads");
+      fs.mkdirSync("uploads");
     }
     cb(null, "uploads");
   },
@@ -63,6 +63,7 @@ app.post(
 app.get("/auth/me", checkAuth, getMe);
 
 app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
+  console.log(req.file.originalname);
   res.json({
     url: `/uploads/${req.file.originalname}`,
   });
